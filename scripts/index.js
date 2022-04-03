@@ -5,13 +5,14 @@ var decryptionMethod;
 var displayConfigs = {
     base64: function () {
         var ccPace = document.querySelector('#cc-pace');
-
+        document.body.style.backgroundImage = "url('./images/bg-blue.png')"
         if (ccPace.classList.contains('hidden')) return
         ccPace.classList.add('hidden');
+
     },
     cc: function () {
         var ccPace = document.querySelector('#cc-pace')
-
+        document.body.style.backgroundImage = "url('./images/bg-red.png')"
         if (!ccPace.classList.contains('hidden')) return
         ccPace.classList.remove('hidden');
 

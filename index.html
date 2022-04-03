@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@500;700&display=swap" rel="stylesheet">
     <title>The Cypher</title>
     <link rel="stylesheet" href="./styles/reset.css">
     <link rel="stylesheet" href="./styles/index.css">
@@ -21,26 +24,35 @@
         </nav>
     </header>
     <main>
-        <form action="">
-            <input type="radio" name="type-of-code" value="base64" id="type-of-code-base64">
-            <label for="type-of-code-base64">Base64</label>
-            <input type="radio" name="type-of-code" value="cc" id="type-of-code-cc">
-            <label for="type-of-code-cc">Cifra de Cesar</label>
-            <input type="submit" value="Submit" id="enter-code-type-btn">
-        </form>
+        <section>
+            <form action="" class="form-options">
 
-        <section id="container">
-            <form action="">
-                <label for="code">Insira a mensagem: </label>
-                <br>
-                <input type="text" name="code" id="code-input-field">
-                <br>
-                <div id="cc-pace" class="hidden">
-                    <label for="passo">Insira o passo: </label>
-                    <input type="number" name="passo" value="0" id="pace">
+                <img src="" alt="robot">
+
+                <div>
+                    <input type="radio" name="type-of-code" value="base64" id="type-of-code-base64">
+                    <label for="type-of-code-base64">Base64</label>
                 </div>
-                <input type="button" value="encriptar" id="encryption-btn">
-                <input type="button" value="decriptar" id="decryption-btn">
+                <div>
+                    <input type="radio" name="type-of-code" value="cc" id="type-of-code-cc">
+                    <label for="type-of-code-cc">Cifra de Cesar</label>
+                </div>
+                <input type="submit" value="Submit" id="enter-code-type-btn">
+            </form>
+        </section>
+
+        <section id="container" class="container">
+            <form action="" class="mesage-input">
+                <div class="info-and-btns">
+                    <label for="code">Insira a mensagem: </label>
+                    <div id="cc-pace" class="hidden">
+                        <label for="passo">Insira o passo: </label>
+                        <input type="number" name="passo" value="0" id="pace">
+                    </div>
+                    <input type="button" value="encriptar" id="encryption-btn">
+                    <input type="button" value="decriptar" id="decryption-btn">
+                </div>
+                <input type="text" name="code" id="code-input-field" class="code-input-field">
             </form>
         </section>
         <section id="result">

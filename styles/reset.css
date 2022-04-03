@@ -8,6 +8,13 @@ html,
 body {
     height: 100%;
     width: 100%;
+    font-family: 'Inconsolata', monospace;
+}
+
+body {
+    background-image: url('../images/bg-purple.png');
+    background-size: 40%;
+    transition: 1s;
 }
 
 .hidden {
