@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Cypher</title>
+    <link rel="stylesheet" href="./styles/reset.css">
+    <link rel="stylesheet" href="./styles/index.css">
+</head>
+
+<body>
+    <script src="./scripts/index.js" defer></script>
+
+    <header>
+        <h1>The Cypher</h1>
+        <nav>
+            <a href="">Github</a>
+            <a href="">Linkedin</a>
+        </nav>
+    </header>
+    <main>
+        <form action="">
+            <input type="radio" name="type-of-code" value="base64" id="type-of-code-base64">
+            <label for="type-of-code-base64">Base64</label>
+            <input type="radio" name="type-of-code" value="cc" id="type-of-code-cc">
+            <label for="type-of-code-cc">Cifra de Cesar</label>
+            <input type="submit" value="Submit" id="enter-code-type-btn">
+        </form>
+
+        <section id="container">
+            <form action="">
+                <label for="code">Insira a mensagem: </label>
+                <br>
+                <input type="text" name="code" id="code-input-field">
+                <br>
+                <div id="cc-pace" class="hidden">
+                    <label for="passo">Insira o passo: </label>
+                    <input type="number" name="passo" value="0" id="pace">
+                </div>
+                <input type="button" value="encriptar" id="encryption-btn">
+                <input type="button" value="decriptar" id="decryption-btn">
+            </form>
+        </section>
+        <section id="result">
+        </section>
+
+    </main>
+    <footer>
+
+    </footer>
+
+</body>
+
+</html>
