@@ -6,6 +6,10 @@ var displayConfigs = {
     base64: function () {
         var ccPace = document.querySelector('#cc-pace');
         document.body.style.backgroundImage = "url('./images/bg-blue.png')"
+
+        changeDisplay('header', 'red', 'blue');
+        changeDisplay('main', 'red', 'blue');
+
         if (ccPace.classList.contains('hidden')) return
         ccPace.classList.add('hidden');
 
@@ -13,10 +17,20 @@ var displayConfigs = {
     cc: function () {
         var ccPace = document.querySelector('#cc-pace')
         document.body.style.backgroundImage = "url('./images/bg-red.png')"
+
+        changeDisplay('header', 'blue', 'red');
+        changeDisplay('main', 'blue', 'red');
+
         if (!ccPace.classList.contains('hidden')) return
         ccPace.classList.remove('hidden');
 
     }
+}
+
+function changeDisplay(tag, originalColor, newColor) {
+    var tag = document.querySelector(`${tag}`);
+    if (tag.classList.contains(originalColor)) { tag.classList.remove(originalColor) };
+    tag.classList.add(newColor)
 }
 enterCodeTypeBtn.addEventListener('click', function (event) {
     event.preventDefault();

@@ -17,6 +17,15 @@ body {
     transition: 1s;
 }
 
+#root {
+    --color-blue-primary: #a5c1f6;
+    --color-blue-lumitrhough: #a5c1f6a1;
+    --color-red-primary: #b83434;
+    --color-red-lumitrhough: #b83434a8;
+    --color-purple-primary: #8a347c;
+    --color-purple-lumitrhough: #570c6ab2;
+}
+
 .hidden {
-    display: none;
+    visibility: hidden;
 }

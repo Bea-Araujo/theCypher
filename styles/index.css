@@ -2,11 +2,24 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: cornflowerblue;
+    background-color: #a5c1f6;
     height: 70px;
     width: 100%;
     position: relative;
     color: white;
+    transition: 1s;
+}
+
+header.purple {
+    background-color: var(--color-purple-primary);
+}
+
+header.blue {
+    background-color: var(--color-blue-primary);
+}
+
+header.red {
+    background-color: var(--color-red-primary);
 }
 
 header nav {
@@ -16,11 +29,25 @@ header nav {
 
 main {
     margin: 30px;
+    height: 70%;
     border-radius: 20px;
-    background-color: cornflowerblue;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
+    backdrop-filter: blur(5px);
+    transition: 1s;
+}
+
+main.purple {
+    background-color: var(--color-purple-lumitrhough);
+}
+
+main.blue {
+    background-color: var(--color-blue-lumitrhough);
+}
+
+main.red {
+    background-color: var(--color-red-lumitrhough);
 }
 
 main form {
@@ -52,7 +79,6 @@ main form {
 }
 
 .container {
-    background-color: coral;
     width: 90%;
     align-self: center;
 }
@@ -61,6 +87,7 @@ main form {
     display: flex;
     flex-direction: column;
     align-items: center;
+
 }
 
 .info-and-btns {
