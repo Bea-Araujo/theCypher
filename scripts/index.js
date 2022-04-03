@@ -80,7 +80,7 @@ encryptionBtn.addEventListener('click', function () {
                 code.push(mesage[i])
             }
         }
-        code = code.join('');
+        code = code.join(' ');
 
     } else if (decryptionMethod == 'base64') {
         console.log('base64')
@@ -103,9 +103,8 @@ decryptionBtn.addEventListener('click', function () {
                 if (item >= 97 && item <= 122) {
                     delimitateInterval(letter, item, mesage, i, pace, 97, 122);
                 } else if (item >= 65 && item <= 90) {
-                    delimitateInterval(letter, item, mesage, i, pace, 65, 97);
+                    delimitateInterval(letter, item, mesage, i, pace, 65, 90);
                 }
-
                 mesage[i] = String.fromCharCode(mesage[i]);
             } else {
                 mesage.push(code[i])
