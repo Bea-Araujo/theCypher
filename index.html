@@ -29,15 +29,21 @@
 
                 <img src="" alt="robot">
 
-                <div>
-                    <input type="radio" name="type-of-code" value="base64" id="type-of-code-base64">
-                    <label for="type-of-code-base64">Base64</label>
-                </div>
-                <div>
-                    <input type="radio" name="type-of-code" value="cc" id="type-of-code-cc">
-                    <label for="type-of-code-cc">Cifra de Cesar</label>
-                </div>
-                <input type="submit" value="Submit" id="enter-code-type-btn">
+
+                <select name="type-of-code-selector" id="type-of-code-selector">
+                    <option name="type-of-code" value="select" id="type-of-code-base64">
+                        Selecione
+                    </option>
+                    <option name="type-of-code" value="base64" id="type-of-code-base64">
+                        Base64
+                    </option>
+
+                    <option name="type-of-code" value="cc" id="type-of-code-cc">
+                        Cifra de Cesar
+                    </option>
+                </select>
+
+                <!-- <input type="submit" value="Submit" id="enter-code-type-btn"> -->
             </form>
         </section>
 
@@ -49,8 +55,15 @@
                         <label for="passo">Insira o passo: </label>
                         <input type="number" name="passo" value="0" id="pace">
                     </div>
-                    <input type="button" value="encriptar" id="encryption-btn">
-                    <input type="button" value="decriptar" id="decryption-btn">
+
+                    <div>
+                        <input type="radio" name="cryptic" value="encriptar" id="encryption-btn">
+                        <label for="encryption-btn">Encriptar</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="cryptic" value="decriptar" id="decryption-btn">
+                        <label for="decryption-btn">Decriptar</label>
+                    </div>
                 </div>
                 <input type="text" name="code" id="code-input-field" class="code-input-field">
             </form>

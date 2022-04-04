@@ -2,6 +2,7 @@ var codeType = document.querySelectorAll('input[name="type-of-code"]');
 
 var enterCodeTypeBtn = document.querySelector('#enter-code-type-btn');
 var decryptionMethod;
+
 var displayConfigs = {
     base64: function () {
         var ccPace = document.querySelector('#cc-pace');
@@ -32,20 +33,15 @@ function changeDisplay(tag, originalColor, newColor) {
     if (tag.classList.contains(originalColor)) { tag.classList.remove(originalColor) };
     tag.classList.add(newColor)
 }
-enterCodeTypeBtn.addEventListener('click', function (event) {
-    event.preventDefault();
-    for (var radioBtn of codeType) {
 
-        if (radioBtn.checked) {
-            decryptionMethod = radioBtn.value;
-            if (decryptionMethod == 'base64') {
-                displayConfigs.base64();
-            } else {
-                displayConfigs.cc();
-            }
-            //console.log(radioBtn.value)
-            break
-        }
+var selectionBox = document.querySelector("#type-of-code-selector");
+
+selectionBox.addEventListener('change', function () {
+    decryptionMethod = this.value;
+    if (decryptionMethod == 'base64') {
+        displayConfigs.base64();
+    } else {
+        displayConfigs.cc();
     }
 })
 
@@ -80,7 +76,7 @@ encryptionBtn.addEventListener('click', function () {
                 code.push(mesage[i])
             }
         }
-        code = code.join(' ');
+        code = code.join('');
 
     } else if (decryptionMethod == 'base64') {
         console.log('base64')
@@ -123,14 +119,15 @@ function delimitateInterval(letterCodePaced, item, code, i, pace, minValue1, max
     if (letterCodePaced > maxValue2) {
         var distanceToEnd = maxValue2 - item;
         var newPace = pace - distanceToEnd;
-        code.push(minValue1 - 1 + newPace);
+        code.push(String.fromCharCode(minValue1 - 1 + newPace));
     } else if (letterCodePaced < minValue1) {
         var distanceToStart = item - minValue1;
         var newPace = pace + distanceToStart;
-        code.push(maxValue2 + 1 + newPace);
+        code.push(String.fromCharCode(maxValue2 + 1 + newPace));
     } else {
         code.push(item)
         code[i] += pace
+        code[i] = String.fromCharCode(code[i]);
     }
 }
 
