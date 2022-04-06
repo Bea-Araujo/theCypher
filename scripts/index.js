@@ -92,23 +92,36 @@ decryptionBtn.addEventListener('click', function () {
         this.checked = false;
     } else {
         if (decryptionMethod == 'cc') {
-            code = code.split(' ');
+            code = code.split('');
             var pace = -parseInt(document.querySelector('#pace').value);
             var mesage = [];
             for (var i = 0; i < code.length; i++) {
-                if ((/[1-9]/).test(code[i])) {
-                    var letter = parseInt(code[i]) + pace;
-                    var item = parseInt(code[i]);
-                    if (item >= 97 && item <= 122) {
-                        delimitateInterval(letter, item, mesage, i, pace, 97, 122);
-                    } else if (item >= 65 && item <= 90) {
-                        delimitateInterval(letter, item, mesage, i, pace, 65, 90);
-                    }
-                    mesage[i] = String.fromCharCode(mesage[i]);
-                } else {
+                if ((/[a-z]/).test(code[i])) {
+                    var letter = code[i].charCodeAt() + pace;
+                    var item = code[i].charCodeAt();
+                    delimitateInterval(letter, item, mesage, i, pace, 97, 122);
+                } else if ((/[A-Z]/).test(code[i])) {
+                    var letter = code[i].charCodeAt() + pace;
+                    var item = code[i].charCodeAt();
+                    delimitateInterval(letter, item, mesage, i, pace, 65, 90);
+                } else if ((/\W|_/).test(code[i])) {
                     mesage.push(code[i])
                 }
             }
+            // for (var i = 0; i < code.length; i++) {
+            //     if ((/[1-9]/).test(code[i])) {
+            //         var letter = parseInt(code[i]) + pace;
+            //         var item = parseInt(code[i]);
+            //         if (item >= 97 && item <= 122) {
+            //             delimitateInterval(letter, item, mesage, i, pace, 97, 122);
+            //         } else if (item >= 65 && item <= 90) {
+            //             delimitateInterval(letter, item, mesage, i, pace, 65, 90);
+            //         }
+            //         mesage[i] = String.fromCharCode(mesage[i]);
+            //     } else {
+            //         mesage.push(code[i])
+            //     }
+            //}
             mesage = mesage.join('');
         } else if (decryptionMethod == 'base64') {
             console.log('base64')
