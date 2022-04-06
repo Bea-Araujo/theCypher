@@ -1,30 +1,46 @@
 var codeType = document.querySelectorAll('input[name="type-of-code"]');
 
 var enterCodeTypeBtn = document.querySelector('#enter-code-type-btn');
-var decryptionMethod;
+var decryptionMethod = '';
 
 var displayConfigs = {
     base64: function () {
         var ccPace = document.querySelector('#cc-pace');
+        document.querySelector('#code-input-field').style.cursor = 'text';
+        document.querySelector('#code-input-field').removeAttribute('readonly');
         document.body.style.backgroundImage = "url('./images/bg-blue.png')"
 
-        changeDisplay('header', 'red', 'blue');
-        changeDisplay('main', 'red', 'blue');
+        changeDisplay('header', ['purple', 'red'], 'blue');
+        changeDisplay('main', ['purple', 'red'], 'blue');
 
         if (ccPace.classList.contains('hidden')) return
         ccPace.classList.add('hidden');
 
     },
     cc: function () {
-        var ccPace = document.querySelector('#cc-pace')
-        document.body.style.backgroundImage = "url('./images/bg-red.png')"
+        var ccPace = document.querySelector('#cc-pace');
+        document.querySelector('#code-input-field').style.cursor = 'text';
+        document.querySelector('#code-input-field').removeAttribute('readonly');
+        document.body.style.backgroundImage = "url('./images/bg-red.png')";
 
-        changeDisplay('header', 'blue', 'red');
-        changeDisplay('main', 'blue', 'red');
+        changeDisplay('header', ['purple', 'blue'], 'red');
+        changeDisplay('main', ['purple', 'blue'], 'red');
 
         if (!ccPace.classList.contains('hidden')) return
         ccPace.classList.remove('hidden');
+    },
 
+    select: function () {
+        var ccPace = document.querySelector('#cc-pace')
+        document.querySelector('#code-input-field').style.cursor = 'not-allowed'
+        document.querySelector('#code-input-field').setAttribute('readonly', null)
+        document.body.style.backgroundImage = "url('./images/bg-purple.png')"
+
+        changeDisplay('header', ['red', 'blue'], 'purple');
+        changeDisplay('main', ['red', 'blue'], 'purple');
+
+        if (ccPace.classList.contains('hidden')) return
+        ccPace.classList.add('hidden');
     }
 }
 
@@ -34,8 +50,10 @@ selectionBox.addEventListener('change', function () {
     decryptionMethod = this.value;
     if (decryptionMethod == 'base64') {
         displayConfigs.base64();
-    } else {
+    } else if (decryptionMethod == 'cc') {
         displayConfigs.cc();
+    } else {
+        displayConfigs.select();
     }
 })
 
@@ -53,8 +71,11 @@ var decryptionBtn = document.querySelector('#decryption-btn');
 
 encryptionBtn.addEventListener('click', function () {
     var mesage = codeInputField.value;
-    if (mesage == '') {
-        alert('aaa')
+    if (decryptionMethod == 'select' || decryptionMethod == '') {
+        alert('Selecione um método válido de encripção')
+        this.checked = false;
+    } else if (mesage == '') {
+        alert('Texto não encontrado')
         this.checked = false;
     } else {
         if (decryptionMethod == 'cc') {
@@ -87,8 +108,11 @@ encryptionBtn.addEventListener('click', function () {
 decryptionBtn.addEventListener('click', function () {
     var code = codeInputField.value;
 
-    if (code == '') {
-        alert('aaa')
+    if (decryptionMethod == 'select' || decryptionMethod == '') {
+        alert('Selecione um método válido de encripção')
+        this.checked = false;
+    } else if (code == '') {
+        alert('Texto não encontrado')
         this.checked = false;
     } else {
         if (decryptionMethod == 'cc') {
@@ -108,20 +132,6 @@ decryptionBtn.addEventListener('click', function () {
                     mesage.push(code[i])
                 }
             }
-            // for (var i = 0; i < code.length; i++) {
-            //     if ((/[1-9]/).test(code[i])) {
-            //         var letter = parseInt(code[i]) + pace;
-            //         var item = parseInt(code[i]);
-            //         if (item >= 97 && item <= 122) {
-            //             delimitateInterval(letter, item, mesage, i, pace, 97, 122);
-            //         } else if (item >= 65 && item <= 90) {
-            //             delimitateInterval(letter, item, mesage, i, pace, 65, 90);
-            //         }
-            //         mesage[i] = String.fromCharCode(mesage[i]);
-            //     } else {
-            //         mesage.push(code[i])
-            //     }
-            //}
             mesage = mesage.join('');
         } else if (decryptionMethod == 'base64') {
             console.log('base64')
@@ -134,7 +144,9 @@ decryptionBtn.addEventListener('click', function () {
 
 function changeDisplay(tag, originalColor, newColor) {
     var tag = document.querySelector(`${tag}`);
-    if (tag.classList.contains(originalColor)) { tag.classList.remove(originalColor) };
+    for (var i = 0; i < originalColor.length; i++) {
+        if (tag.classList.contains(originalColor[i])) { tag.classList.remove(originalColor[i]) };
+    }
     tag.classList.add(newColor)
 }
 

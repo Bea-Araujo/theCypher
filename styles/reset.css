@@ -18,6 +18,10 @@ body {
 }
 
 #root {
+    --color-white-primary: #fff;
+    --color-white-lumitrhough: rgba(255, 255, 255, 0.952);
+    --color-grey-primary: rgb(212, 212, 212);
+    --color-dark-grey: rgb(110, 110, 110);
     --color-blue-primary: #a5c1f6;
     --color-blue-lumitrhough: #a5c1f6a1;
     --color-red-primary: #b83434;

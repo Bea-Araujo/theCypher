@@ -24,7 +24,7 @@
         </nav>
     </header>
     <main class="purple">
-        <section>
+        <section class="form-options-container">
             <form action="" class="form-options">
 
                 <img src="" alt="robot">
@@ -56,21 +56,23 @@
                         <input type="number" name="passo" value="0" id="pace">
                     </div>
 
-                    <div>
+                    <div class='radio-btn'>
                         <input type="radio" name="cryptic" value="encriptar" id="encryption-btn">
                         <label for="encryption-btn">Encriptar</label>
                     </div>
-                    <div>
+                    <div class='radio-btn'>
                         <input type="radio" name="cryptic" value="decriptar" id="decryption-btn">
                         <label for="decryption-btn">Decriptar</label>
                     </div>
-                    <input type="button" value="Enviar">
                 </div>
-                <input type="text" name="code" id="code-input-field" class="code-input-field">
+
+                <textarea id="code-input-field" placeholder="Insira o texto aqui" class="code-input-field" name="code"
+                    cols="30" rows="10" readonly></textarea>
             </form>
         </section>
 
         <section id="result" class="result">
+            <p>Seus resultados aparecerão aqui</p>
         </section>
 
     </main>
