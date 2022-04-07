@@ -1,0 +1,49 @@
+@media (max-width: 426px) {
+    header {
+        padding: 5px;
+        display: flex;
+        flex-direction: column;
+        height: fit-content;
+    }
+
+    header nav {
+        position: static;
+        display: flex;
+        width: 40%;
+        justify-content: space-evenly;
+        padding: 5px 0 0 0;
+    }
+
+    main {
+        width: 100%;
+        margin: 30px 0 30px 0;
+    }
+
+    .form-options {
+        flex-direction: column;
+        padding: 0;
+    }
+
+    section.container {
+        width: 100%;
+    }
+
+    .info-and-btns {
+        flex-direction: column-reverse;
+        margin: 0;
+    }
+
+    .info-and-btns>label {
+        color: var(--color-white-lumitrhough);
+    }
+
+    div.radio-btn,
+    div.cc-pace {
+        margin: 10px;
+    }
+
+    div.cc-pace {
+        display: flex;
+        flex-direction: column;
+    }
+}
