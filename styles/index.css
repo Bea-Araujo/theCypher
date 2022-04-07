@@ -27,6 +27,10 @@ header nav {
     right: 3rem;
 }
 
+header nav img {
+    width: 2rem;
+}
+
 main {
     margin: 30px;
     height: fit-content;
