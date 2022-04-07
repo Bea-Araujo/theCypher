@@ -23,11 +23,11 @@ body {
     --color-grey-primary: rgb(212, 212, 212);
     --color-dark-grey: rgb(110, 110, 110);
     --color-blue-primary: #a5c1f6;
-    --color-blue-lumitrhough: #a5c1f6a1;
+    --color-blue-lumitrhough: hsla(219, 82%, 81%, 0.467);
     --color-red-primary: #b83434;
-    --color-red-lumitrhough: #b83434a8;
+    --color-red-lumitrhough: hsla(0, 56%, 46%, 0.370);
     --color-purple-primary: #8a347c;
-    --color-purple-lumitrhough: #570c6ab2;
+    --color-purple-lumitrhough: hsla(287, 98%, 21%, 0.644);
 }
 
 .hidden {

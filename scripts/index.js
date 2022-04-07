@@ -6,6 +6,7 @@ var decryptionMethod = '';
 var displayConfigs = {
     base64: function () {
         var ccPace = document.querySelector('#cc-pace');
+        document.querySelector('#bot-picture').src = "./images/blue-bot.png"
         document.querySelector('#code-input-field').style.cursor = 'text';
         document.querySelector('#code-input-field').removeAttribute('readonly');
         document.body.style.backgroundImage = "url('./images/bg-blue.png')"
@@ -19,6 +20,7 @@ var displayConfigs = {
     },
     cc: function () {
         var ccPace = document.querySelector('#cc-pace');
+        document.querySelector('#bot-picture').src = "./images/red-bot.png"
         document.querySelector('#code-input-field').style.cursor = 'text';
         document.querySelector('#code-input-field').removeAttribute('readonly');
         document.body.style.backgroundImage = "url('./images/bg-red.png')";
@@ -32,6 +34,7 @@ var displayConfigs = {
 
     select: function () {
         var ccPace = document.querySelector('#cc-pace')
+        document.querySelector('#bot-picture').src = "./images/purple-bot.png"
         document.querySelector('#code-input-field').style.cursor = 'not-allowed'
         document.querySelector('#code-input-field').setAttribute('readonly', null)
         document.body.style.backgroundImage = "url('./images/bg-purple.png')"
@@ -80,7 +83,7 @@ encryptionBtn.addEventListener('click', function () {
     } else {
         if (decryptionMethod == 'cc') {
             var code = [];
-            var pace = parseInt(document.querySelector('#pace').value);
+            var pace = parseInt(document.querySelector('#pace').value) % 26;
             for (var i = 0; i < mesage.length; i++) {
                 if ((/[a-z]/).test(mesage[i])) {
                     var letterCodePaced = mesage[i].charCodeAt() + pace;
@@ -117,7 +120,7 @@ decryptionBtn.addEventListener('click', function () {
     } else {
         if (decryptionMethod == 'cc') {
             code = code.split('');
-            var pace = -parseInt(document.querySelector('#pace').value);
+            var pace = -parseInt(document.querySelector('#pace').value) % 26;
             var mesage = [];
             for (var i = 0; i < code.length; i++) {
                 if ((/[a-z]/).test(code[i])) {
@@ -135,7 +138,13 @@ decryptionBtn.addEventListener('click', function () {
             mesage = mesage.join('');
         } else if (decryptionMethod == 'base64') {
             console.log('base64')
-            var mesage = atob(code);
+            try {
+                var mesage = window.atob(code);
+            } catch (err) {
+                alert('Foi encontrado um erro no seu texto, tente codificar em vez de decodificar')
+                mesage = 'Seus resultados aparecerão aqui';
+            }
+
             console.log(mesage);
         }
         createResultOutput(mesage);

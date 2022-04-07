@@ -58,6 +58,14 @@ main form {
     padding: 20px;
 }
 
+picture {
+    transition: 1s;
+    min-height: 150px;
+    min-width: 150px;
+    display: flex;
+    align-items: center;
+}
+
 .form-options-container {
     width: 100%;
 }
