@@ -51,6 +51,8 @@ var selectionBox = document.querySelector("#type-of-code-selector");
 
 selectionBox.addEventListener('change', function () {
     decryptionMethod = this.value;
+    document.querySelector('#encryption-btn').checked = false;
+    document.querySelector('#decryption-btn').checked = false;
     if (decryptionMethod == 'base64') {
         displayConfigs.base64();
     } else if (decryptionMethod == 'cc') {
